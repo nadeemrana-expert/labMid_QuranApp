@@ -1,0 +1,155 @@
+import React from 'react';
+import { View, Text, FlatList, StyleSheet } from 'react-native';
+import { surahNames } from './QuranData';
+
+export default function SurahNamesScreen() {
+    const surahNames = [
+        { id: 1, english: "Al-Fatihah", arabic: "الفاتحة" },
+        { id: 2, english: "Al-Baqarah", arabic: "البقرة" },
+        { id: 3, english: "Al-Imran", arabic: "آل عمران" },
+        { id: 4, english: "An-Nisa", arabic: "النساء" },
+        { id: 5, english: "Al-Maidah", arabic: "المائدة" },
+        { id: 6, english: "Al-An'am", arabic: "الأنعام" },
+        { id: 7, english: "Al-A'raf", arabic: "الأعراف" },
+        { id: 8, english: "Al-Anfal", arabic: "الأنفال" },
+        { id: 9, english: "At-Tawbah", arabic: "التوبة" },
+        { id: 10, english: "Yunus", arabic: "يونس" },
+        { id: 11, english: "Hud", arabic: "هود" },
+        { id: 12, english: "Yusuf", arabic: "يوسف" },
+        { id: 13, english: "Ar-Ra'd", arabic: "الرعد" },
+        { id: 14, english: "Ibrahim", arabic: "إبراهيم" },
+        { id: 15, english: "Al-Hijr", arabic: "الحجر" },
+        { id: 16, english: "An-Nahl", arabic: "النحل" },
+        { id: 17, english: "Al-Isra", arabic: "الإسراء" },
+        { id: 18, english: "Al-Kahf", arabic: "الكهف" },
+        { id: 19, english: "Maryam", arabic: "مريم" },
+        { id: 20, english: "Ta-Ha", arabic: "طه" },
+        { id: 21, english: "Al-Anbiya", arabic: "الأنبياء" },
+        { id: 22, english: "Al-Hajj", arabic: "الحج" },
+        { id: 23, english: "Al-Mu'minun", arabic: "المؤمنون" },
+        { id: 24, english: "An-Nur", arabic: "النور" },
+        { id: 25, english: "Al-Furqan", arabic: "الفرقان" },
+        { id: 26, english: "Ash-Shu'ara", arabic: "الشعراء" },
+        { id: 27, english: "An-Naml", arabic: "النمل" },
+        { id: 28, english: "Al-Qasas", arabic: "القصص" },
+        { id: 29, english: "Al-Ankabut", arabic: "العنكبوت" },
+        { id: 30, english: "Ar-Rum", arabic: "الروم" },
+        { id: 31, english: "Luqman", arabic: "لقمان" },
+        { id: 32, english: "As-Sajdah", arabic: "السجدة" },
+        { id: 33, english: "Al-Ahzab", arabic: "الأحزاب" },
+        { id: 34, english: "Saba", arabic: "سبأ" },
+        { id: 35, english: "Fatir", arabic: "فاطر" },
+        { id: 36, english: "Ya-Sin", arabic: "يس" },
+        { id: 37, english: "As-Saffat", arabic: "الصافات" },
+        { id: 38, english: "Sad", arabic: "ص" },
+        { id: 39, english: "Az-Zumar", arabic: "الزمر" },
+        { id: 40, english: "Ghafir", arabic: "غافر" },
+        { id: 41, english: "Fussilat", arabic: "فصلت" },
+        { id: 42, english: "Ash-Shura", arabic: "الشورى" },
+        { id: 43, english: "Az-Zukhruf", arabic: "الزخرف" },
+        { id: 44, english: "Ad-Dukhan", arabic: "الدخان" },
+        { id: 45, english: "Al-Jathiyah", arabic: "الجاثية" },
+        { id: 46, english: "Al-Ahqaf", arabic: "الأحقاف" },
+        { id: 47, english: "Muhammad", arabic: "محمد" },
+        { id: 48, english: "Al-Fath", arabic: "الفتح" },
+        { id: 49, english: "Al-Hujurat", arabic: "الحجرات" },
+        { id: 50, english: "Qaf", arabic: "ق" },
+        { id: 51, english: "Adh-Dhariyat", arabic: "الذاريات" },
+        { id: 52, english: "At-Tur", arabic: "الطور" },
+        { id: 53, english: "An-Najm", arabic: "النجم" },
+        { id: 54, english: "Al-Qamar", arabic: "القمر" },
+        { id: 55, english: "Ar-Rahman", arabic: "الرحمن" },
+        { id: 56, english: "Al-Waqi'ah", arabic: "الواقعة" },
+        { id: 57, english: "Al-Hadid", arabic: "الحديد" },
+        { id: 58, english: "Al-Mujadila", arabic: "المجادلة" },
+        { id: 59, english: "Al-Hashr", arabic: "الحشر" },
+        { id: 60, english: "Al-Mumtahanah", arabic: "الممتحنة" },
+        { id: 61, english: "As-Saff", arabic: "الصف" },
+        { id: 62, english: "Al-Jumu'ah", arabic: "الجمعة" },
+        { id: 63, english: "Al-Munafiqun", arabic: "المنافقون" },
+        { id: 64, english: "At-Taghabun", arabic: "التغابن" },
+        { id: 65, english: "At-Talaq", arabic: "الطلاق" },
+        { id: 66, english: "At-Tahrim", arabic: "التحريم" },
+        { id: 67, english: "Al-Mulk", arabic: "الملك" },
+        { id: 68, english: "Al-Qalam", arabic: "القلم" },
+        { id: 69, english: "Al-Haqqah", arabic: "الحاقة" },
+        { id: 70, english: "Al-Ma'arij", arabic: "المعارج" },
+        { id: 71, english: "Nuh", arabic: "نوح" },
+        { id: 72, english: "Al-Jinn", arabic: "الجن" },
+        { id: 73, english: "Al-Muzzammil", arabic: "المزمل" },
+        { id: 74, english: "Al-Muddathir", arabic: "المدثر" },
+        { id: 75, english: "Al-Qiyamah", arabic: "القيامة" },
+        { id: 76, english: "Al-Insan", arabic: "الإنسان" },
+        { id: 77, english: "Al-Mursalat", arabic: "المرسلات" },
+        { id: 78, english: "An-Naba", arabic: "النبأ" },
+        { id: 79, english: "An-Nazi'at", arabic: "النازعات" },
+        { id: 80, english: "'Abasa", arabic: "عبس" },
+        { id: 81, english: "At-Takwir", arabic: "التكوير" },
+        { id: 82, english: "Al-Infitar", arabic: "الإنفطار" },
+        { id: 83, english: "Al-Mutaffifin", arabic: "المطففين" },
+        { id: 84, english: "Al-Inshiqaq", arabic: "الإنشقاق" },
+        { id: 85, english: "Al-Buruj", arabic: "البروج" },
+        { id: 86, english: "At-Tariq", arabic: "الطارق" },
+        { id: 87, english: "Al-A'la", arabic: "الأعلى" },
+        { id: 88, english: "Al-Ghashiyah", arabic: "الغاشية" },
+        { id: 89, english: "Al-Fajr", arabic: "الفجر" },
+        { id: 90, english: "Al-Balad", arabic: "البلد" },
+        { id: 91, english: "Ash-Shams", arabic: "الشمس" },
+        { id: 92, english: "Al-Lail", arabic: "الليل" },
+        { id: 93, english: "Ad-Duha", arabic: "الضحى" },
+        { id: 94, english: "Ash-Sharh", arabic: "الشرح" },
+        { id: 95, english: "At-Tin", arabic: "التين" },
+        { id: 96, english: "Al-Alaq", arabic: "العلق" },
+        { id: 97, english: "Al-Qadr", arabic: "القدر" },
+        { id: 98, english: "Al-Bayyinah", arabic: "البينة" },
+        { id: 99, english: "Az-Zalzalah", arabic: "الزلزلة" },
+        { id: 100, english: "Al-Adiyat", arabic: "العاديات" },
+        { id: 101, english: "Al-Qari'ah", arabic: "القارعة" },
+        { id: 102, english: "At-Takathur", arabic: "التكاثر" },
+        { id: 103, english: "Al-Asr", arabic: "العصر" },
+        { id: 104, english: "Al-Humazah", arabic: "الهمزة" },
+        { id: 105, english: "Al-Fil", arabic: "الفيل" },
+        { id: 106, english: "Quraish", arabic: "قريش" },
+        { id: 107, english: "Al-Ma'un", arabic: "الماعون" },
+        { id: 108, english: "Al-Kawthar", arabic: "الكوثر" },
+        { id: 109, english: "Al-Kafirun", arabic: "الكافرون" },
+        { id: 110, english: "An-Nasr", arabic: "النصر" },
+        { id: 111, english: "Al-Masad", arabic: "المسد" },
+        { id: 112, english: "Al-Ikhlas", arabic: "الإخلاص" },
+        { id: 113, english: "Al-Falaq", arabic: "الفلق" },
+        { id: 114, english: "An-Nas", arabic: "الناس" }
+      ];
+  return (
+    <View style={styles.container}>
+      <Text style={styles.heading}>Surah Names Screen</Text>
+      <FlatList
+        data={surahNames}
+        renderItem={({ item }) => (
+          <View style={styles.item}>
+            <Text>{`${item.english} (${item.arabic}) - ${item.description}`}</Text>
+          </View>
+        )}
+        keyExtractor={(item, index) => index.toString()}
+      />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff', // Example background color
+  },
+  heading: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
+  item: {
+    padding: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ccc',
+  },
+});

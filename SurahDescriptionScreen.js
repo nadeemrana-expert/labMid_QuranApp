@@ -1,0 +1,162 @@
+import React from 'react';
+import { View, Text, FlatList, StyleSheet } from 'react-native';
+import { surahNames, surahDescriptions } from './QuranData';
+
+export default function SurahDescriptionScreen() {
+    const surahDescriptions = [
+        { id: 1, description: "The Opening - It is a Makki surah with seven verses." },
+        { id: 2, description: "The Cow - It is a Madani surah with 286 verses." },
+        { id: 3, description: "The Family of Imran - It is a Madani surah with 200 verses." },
+        { id: 4, description: "The Women - It is a Madani surah with 176 verses." },
+        { id: 5, description: "The Table Spread - It is a Madani surah with 120 verses." },
+        { id: 6, description: "The Cattle - It is a Makki surah with 165 verses." },
+        { id: 7, description: "The Heights - It is a Makki surah with 206 verses." },
+        { id: 8, description: "The Spoils of War - It is a Madani surah with 75 verses." },
+        { id: 9, description: "The Repentance - It is a Madani surah with 129 verses." },
+        { id: 10, description: "Jonah - It is a Makki surah with 109 verses." },
+        { id: 11, description: "Hud - It is a Makki surah with 123 verses." },
+        { id: 12, description: "Joseph - It is a Makki surah with 111 verses." },
+        { id: 13, description: "The Thunder - It is a Madani surah with 43 verses." },
+        { id: 14, description: "Abraham - It is a Makki surah with 52 verses." },
+        { id: 15, description: "The Rocky Tract - It is a Makki surah with 99 verses." },
+        { id: 16, description: "The Bee - It is a Makki surah with 128 verses." },
+        { id: 17, description: "The Night Journey - It is a Makki surah with 111 verses." },
+        { id: 18, description: "The Cave - It is a Makki surah with 110 verses." },
+        { id: 19, description: "Mary - It is a Makki surah with 98 verses." },
+        { id: 20, description: "Ta-Ha - It is a Makki surah with 135 verses." },
+        { id: 21, description: "The Prophets - It is a Makki surah with 112 verses." },
+        { id: 22, description: "The Pilgrimage - It is a Madani surah with 78 verses." },
+        { id: 23, description: "The Believers - It is a Makki surah with 118 verses." },
+        { id: 24, description: "The Light - It is a Madani surah with 64 verses." },
+        { id: 25, description: "The Criterion - It is a Makki surah with 77 verses." },
+        { id: 26, description: "The Poets - It is a Makki surah with 227 verses." },
+        { id: 27, description: "The Ant - It is a Makki surah with 93 verses." },
+        { id: 28, description: "The Stories - It is a Makki surah with 88 verses." },
+        { id: 29, description: "The Spider - It is a Makki surah with 69 verses." },
+        { id: 30, description: "The Romans - It is a Makki surah with 60 verses." },
+        { id: 31, description: "Luqman - It is a Makki surah with 34 verses." },
+        { id: 32, description: "The Prostration - It is a Makki surah with 30 verses." },
+        { id: 33, description: "The Confederates - It is a Madani surah with 73 verses." },
+        { id: 34, description: "Sheba - It is a Makki surah with 54 verses." },
+        { id: 35, description: "The Originator - It is a Makki surah with 45 verses." },
+        { id: 36, description: "Ya-Sin - It is a Makki surah with 83 verses." },
+        { id: 37, description: "Those who set the Ranks - It is a Makki surah with 182 verses." },
+        { id: 38, description: "The Letter Sad - It is a Makki surah with 88 verses." },
+        { id: 39, description: "The Troops - It is a Makki surah with 75 verses." },
+        { id: 40, description: "The Forgiver - It is a Makki surah with 85 verses." },
+        { id: 41, description: "Explained in Detail - It is a Makki surah with 54 verses." },
+        { id: 42, description: "The Consultation - It is a Madani surah with 53 verses." },
+        { id: 43, description: "The Gold Adornments - It is a Makki surah with 89 verses." },
+        { id: 44, description: "The Smoke - It is a Makki surah with 59 verses." },
+        { id: 45, description: "The Kneeling - It is a Makki surah with 37 verses." },
+        { id: 46, description: "The Sandhills - It is a Makki surah with 35 verses." },
+        { id: 47, description: "Muhammad - It is a Madani surah with 38 verses." },
+        { id: 48, description: "The Victory - It is a Madani surah with 29 verses." },
+        { id: 49, description: "The Chambers - It is a Madani surah with 18 verses." },
+        { id: 50, description: "Qaf - It is a Makki surah with 45 verses." },
+        { id: 51, description: "The Winnowing Winds - It is a Makki surah with 60 verses." },
+        { id: 52, description: "The Mount - It is a Makki surah with 49 verses." },
+        { id: 53, description: "The Star - It is a Makki surah with 62 verses." },
+        { id: 54, description: "The Moon - It is a Makki surah with 55 verses." },
+        { id: 55, description: "The Beneficent - It is a Makki surah with 78 verses." },
+        { id: 56, description: "The Inevitable - It is a Makki surah with 96 verses." },
+        { id: 57, description: "The Iron - It is a Madani surah with 29 verses." },
+        { id: 58, description: "The Pleading Woman - It is a Madani surah with 22 verses." },
+        { id: 59, description: "The Gathering - It is a Madani surah with 24 verses." },
+        { id: 60, description: "The Examined One - It is a Madani surah with 13 verses." },
+        { id: 61, description: "The Line - It is a Madani surah with 14 verses." },
+        { id: 62, description: "The Congregation - It is a Madani surah with 11 verses." },
+        { id: 63, description: "The Hypocrites - It is a Madani surah with 11 verses." },
+        { id: 64, description: "The Mutual Disillusion - It is a Madani surah with 18 verses." },
+        { id: 65, description: "The Divorce - It is a Madani surah with 12 verses." },
+        { id: 66, description: "The Prohibition - It is a Madani surah with 12 verses." },
+        { id: 67, description: "The Sovereignty - It is a Makki surah with 30 verses." },
+        { id: 68, description: "The Pen - It is a Makki surah with 52 verses." },
+        { id: 69, description: "The Reality - It is a Makki surah with 52 verses." },
+        { id: 70, description: "The Ascending Stairways - It is a Makki surah with 44 verses." },
+        { id: 71, description: "Noah - It is a Makki surah with 28 verses." },
+        { id: 72, description: "The Jinn - It is a Makki surah with 28 verses." },
+        { id: 73, description: "The Enshrouded One - It is a Makki surah with 20 verses." },
+        { id: 74, description: "The Cloaked One - It is a Makki surah with 56 verses." },
+        { id: 75, description: "The Resurrection - It is a Makki surah with 40 verses." },
+        { id: 76, description: "The Man - It is a Madani surah with 31 verses." },
+        { id: 77, description: "The Emissaries - It is a Makki surah with 50 verses." },
+        { id: 78, description: "The Tidings - It is a Makki surah with 40 verses." },
+        { id: 79, description: "Those who tear out - It is a Makki surah with 46 verses." },
+        { id: 80, description: "He Frowned - It is a Makki surah with 42 verses." },
+        { id: 81, description: "The Overthrowing - It is a Makki surah with 29 verses." },
+        { id: 82, description: "The Cleaving - It is a Makki surah with 19 verses." },
+        { id: 83, description: "The Defrauding - It is a Makki surah with 36 verses." },
+        { id: 84, description: "The Splitting Open - It is a Makki surah with 25 verses." },
+        { id: 85, description: "The Constellations - It is a Makki surah with 22 verses." },
+        { id: 86, description: "The Morning Star - It is a Makki surah with 17 verses." },
+        { id: 87, description: "The Most High - It is a Makki surah with 19 verses." },
+        { id: 88, description: "The Overwhelming Event - It is a Makki surah with 26 verses." },
+        { id: 89, description: "The Dawn - It is a Makki surah with 30 verses." },
+        { id: 90, description: "The City - It is a Makki surah with 20 verses." },
+        { id: 91, description: "The Sun - It is a Makki surah with 15 verses." },
+        { id: 92, description: "The Night - It is a Makki surah with 21 verses." },
+        { id: 93, description: "The Morning Hours - It is a Makki surah with 11 verses." },
+        { id: 94, description: "The Relief - It is a Makki surah with 8 verses." },
+        { id: 95, description: "The Fig - It is a Makki surah with 8 verses." },
+        { id: 96, description: "The Clot - It is a Makki surah with 19 verses." },
+        { id: 97, description: "The Power - It is a Makki surah with 5 verses." },
+        { id: 98, description: "The Clear Proof - It is a Madani surah with 8 verses." },
+        { id: 99, description: "The Earthquake - It is a Makki surah with 8 verses." },
+        { id: 100, description: "The Chargers - It is a Makki surah with 11 verses." },
+        { id: 101, description: "The Calamity - It is a Makki surah with 11 verses." },
+        { id: 102, description: "The Rivalry in world increase - It is a Makki surah with 8 verses." },
+        { id: 103, description: "The Declining Day - It is a Makki surah with 3 verses." },
+        { id: 104, description: "The Traducer - It is a Makki surah with 9 verses." },
+        { id: 105, description: "The Elephant - It is a Makki surah with 5 verses." },
+        { id: 106, description: "Quraysh - It is a Makki surah with 4 verses." },
+        { id: 107, description: "The Small Kindnesses - It is a Makki surah with 7 verses." },
+        { id: 108, description: "The Abundance - It is a Makki surah with 3 verses." },
+        { id: 109, description: "The Disbelievers - It is a Makki surah with 6 verses." },
+        { id: 110, description: "The Help - It is a Madani surah with 3 verses." },
+        { id: 111, description: "The Palm Fiber - It is a Makki surah with 5 verses." },
+        { id: 112, description: "The Unity - It is a Makki surah with 4 verses." },
+        { id: 113, description: "The Daybreak - It is a Makki surah with 5 verses." },
+        { id: 114, description: "The Mankind - It is a Makki surah with 6 verses." }
+    ];
+  return (
+    <View style={styles.container}>
+      <Text style={styles.heading}>Surah Descriptions</Text>
+      <FlatList
+        data={surahDescriptions}
+        renderItem={({ item }) => (
+            <View style={styles.item}>
+              <Text>{`${item.english} (${item.arabic}) - ${item.description}`}</Text>
+            </View>
+          )}
+          keyExtractor={(item, index) => index.toString()}
+      />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+  },
+  heading: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
+  item: {
+    padding: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ccc',
+  },
+  surahName: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  description: {
+    fontSize: 14,
+  },
+});
